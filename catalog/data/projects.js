@@ -14,7 +14,7 @@ window.PROJECTS=[
 },
 {
 "id": "ashen-windows",
-"name": "Ashen Windows",
+"name": "LockDown",
 "sub": "",
 "group": "local",
 "cat": "The Collection",
@@ -319,7 +319,7 @@ window.PROJECTS=[
 },
 {
 "id": "ashenwindows",
-"name": "Ashen Windows",
+"name": "LockDown",
 "sub": "",
 "group": "linked",
 "cat": "Featured",

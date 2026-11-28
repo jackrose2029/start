@@ -3,11 +3,11 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no, viewport-fit=cover">
-<title>Ashen Windows</title>
-<meta name="description" content="Ashen Windows: a quiet survival drama about neighbours sharing one landing through a long winter. Drawn and sounded entirely in code.">
+<title>LockDown</title>
+<meta name="description" content="LockDown: a quiet survival drama about neighbours sharing one landing through a long winter. Drawn and sounded entirely in code.">
 <meta name="theme-color" content="#0b0b0b">
 <meta name="color-scheme" content="dark">
-<meta property="og:title" content="Ashen Windows">
+<meta property="og:title" content="LockDown">
 <meta property="og:description" content="A quiet winter in Greywater. Keep the candle lit, keep each other warm.">
 <meta property="og:type" content="website">
 <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='10' fill='%230b0b0b'/%3E%3Crect x='14' y='10' width='36' height='48' fill='%23303030'/%3E%3Crect x='19' y='16' width='10' height='10' fill='%23171717'/%3E%3Crect x='35' y='16' width='10' height='10' fill='%23e8b04a'/%3E%3Crect x='19' y='32' width='10' height='10' fill='%23171717'/%3E%3Crect x='35' y='32' width='10' height='10' fill='%23171717'/%3E%3Crect x='28' y='46' width='8' height='12' fill='%23111'/%3E%3C/svg%3E">
@@ -28,11 +28,11 @@
 </style>
 </head>
 <body>
-<noscript>Ashen Windows is drawn with JavaScript. Please enable it to play.</noscript>
-<div id="wrap"><canvas id="c" tabindex="0" aria-label="Ashen Windows game"></canvas></div>
+<noscript>LockDown is drawn with JavaScript. Please enable it to play.</noscript>
+<div id="wrap"><canvas id="c" tabindex="0" aria-label="LockDown game"></canvas></div>
 <div id="err"><div>The lights went out.<br>Press R (or tap) to restart.</div><small id="errmsg"></small></div>
 <script>
-/* ASHEN WINDOWS - a single-file survival drama. Everything below is original, procedural, and offline. */
+/* LOCKDOWN - a single-file survival drama. Everything below is original, procedural, and offline. */
 (function () {
 'use strict';
 
@@ -871,7 +871,7 @@ const TRACKS = {
     pluck: SQ('0 . . . . . . . 2 . . . . . . . | 2 . . . . . . . 4 . . . . . . . | 5 . . . . . . . 3 . . . . . . . | 4 . . . . . . . -1 . . . . . . .') }
 };
 /* For the Listening Room (Profile). A track is unlocked once it has been heard. */
-const TRACK_INFO = [['menu', 'Ashen Windows', 'The title. A lit window, seen from the street.'], ['ch1', 'The First Candle', 'Chapter one. Learning the stairs.'], ['homeDay', 'Day, on the Landing', 'Jobs, soup, the radio.'],
+const TRACK_INFO = [['menu', 'LockDown', 'The title. A lit window, seen from the street.'], ['ch1', 'The First Candle', 'Chapter one. Learning the stairs.'], ['homeDay', 'Day, on the Landing', 'Jobs, soup, the radio.'],
   ['homeNight', 'Night, on the Landing', 'Somebody is always awake.'], ['sortie', 'The Night Road', 'Flashlight off. Count your steps.'], ['danger', 'Boots on the Stairs', 'When the cones turn to you.'],
   ['ch2', 'Thin Soup', 'Chapter two. A table, set anyway.'], ['market', 'Night Market', 'Prams, whispers, fair prices. Mostly.'], ['ch3', 'The Long Cold', 'Chapter three. Frost on the inside.'],
   ['snow', 'Snowbound', 'Everyone in one room, and the heater ticking.'], ['ch4', 'Quiet Hands', 'Chapter four. Knocks on other doors.'], ['courier', 'Letters After Dark', 'Ines, running.'],
@@ -3570,7 +3570,7 @@ class PlayScene {
     items.push({ type: 'head', label: 'SCREEN FILTERS' }, ...filterItems());
     if (this.pauseExtra) this.pauseExtra(items);
     items.push({ label: 'Quit to menu', sub: Game.run && MODE_BY_ID[Game.run.mode] && MODE_BY_ID[Game.run.mode].kind === 'campaign' ? 'Progress is kept from the last dawn.' : 'This run will end.', act: () => { Game.ov.length = 0; Game.go('Title', {}, 'flicker'); } });
-    const run = Game.run, info = (run && MODE_BY_ID[run.mode] ? MODE_BY_ID[run.mode].n + '   day ' + run.day + '   ' : '') + 'Ashen Windows v' + VERSION;
+    const run = Game.run, info = (run && MODE_BY_ID[run.mode] ? MODE_BY_ID[run.mode].n + '   day ' + run.day + '   ' : '') + 'LockDown v' + VERSION;
     Game.push(menuOverlay({ title: 'Paused', key: 'pause', w: 340, y: 130, items, onBack: () => Game.pop(), noBackItem: true, extra: (ctx, m) => { txt(ctx, info, W / 2, m.y + m.height() + 64, 10, G.dust, 'center', { normal: true }); txt(ctx, Input.glyph('pause') + ' to resume', W / 2, m.y - 10, 10, G.pewter, 'center', { normal: true }); } }));
     Snd.sfx('page');
   }
@@ -4387,7 +4387,7 @@ const Flow = {
       const first = (run.surv.find(s => s.id === 'marta') || run.surv[0]).id;
       const tut = () => Game.go('NightSortie', { loc: 'pharmacy', scouts: [first], pack: {}, battery: 1, tutorial: true, time: 320, onDone: res => { Save.data.tutorialDone = true; unlock('firstnight'); Flow.dawn(res); } }, 'iris');
       const next = (!Save.data.tutorialDone || o.tutorial) ? tut : () => Flow.day();
-      Game.go('Cutscene', { script: CUTS.intro, title: 'Ashen Windows', next }, 'flicker'); return;
+      Game.go('Cutscene', { script: CUTS.intro, title: 'LockDown', next }, 'flicker'); return;
     }
     if (M && M.kind === 'campaign') {
       let run;
@@ -4678,7 +4678,7 @@ class TitleScene {
     const tg = ctx.createRadialGradient(740, 90, 10, 740, 90, 260); tg.addColorStop(0, 'rgba(0,0,0,0.55)'); tg.addColorStop(1, 'rgba(0,0,0,0)'); ctx.fillStyle = tg; ctx.fillRect(480, -170, 520, 520);   // a dark pool so the title reads over the skyline
     ctx.save(); ctx.translate(588, 84); ctx.rotate(-0.025);
     const word = (s, y, size) => { let x = 0; setFont(ctx, size, { serif: true, fixed: true }); for (let i = 0; i < s.length; i++) { const k = Ease.outBack(clamp((t - i * 0.05) / 0.4, 0, 1)), cw = ctx.measureText(s[i]).width; const sway = Save.s.reduce ? 0 : Math.sin(t * 1.3 + i * 0.7 + y) * 1.2; txt(ctx, s[i], x + 3, y + Math.sin(i * 2.1) * 2 + (1 - k) * -20 + sway + 4, size, 'rgba(0,0,0,0.5)', 'left', { serif: true, fixed: true, outline: false }); txt(ctx, s[i], x, y + Math.sin(i * 2.1) * 2 + (1 - k) * -20 + sway, size, G.bone, 'left', { serif: true, fixed: true, lw: 5 }); x += cw + 2; } };
-    word('ASHEN', 0, 50); word('WINDOWS', 48, 50); ctx.restore();
+    word('LOCK', 0, 50); word('DOWN', 48, 50); ctx.restore();
     txt(ctx, 'a quiet winter in Greywater', 600, 160, 12, G.pewter, 'left', { normal: true, rot: -0.02 });
     this.menu.render(ctx);
     drawTip(ctx, this.tip, H - 30);
@@ -5012,7 +5012,7 @@ class EndingScene {
   }
 }
 
-const CREDITS = ['JORJ', 'presents', '', 'ASHEN WINDOWS', '', 'a quiet winter in Greywater', '', 'Everything here is drawn and sounded in code:', 'the city, the people, the music box.', '', 'The survivors', 'Marta, Dov, Ines, Toby, Granny Beatrix,', 'Ravi, Yara, Pavel, and one Lamplighter', '', 'Also appearing', 'Mr. Halloran of 5B (weather)', 'the neighbor from 6A', 'a grey cat (unpaid)', 'a mouse (signage)', '', 'No dogs, cats, pigeons or mice were harmed.', 'The Grey Coats, the Magpies and the long guns are invented.', 'No real places, people or conflicts are depicted.', '', 'For everyone who kept a small light going', 'for somebody else.', '', 'Release ' + VERSION, 'Free to play in any browser, offline too.'];
+const CREDITS = ['JORJ', 'presents', '', 'LOCKDOWN', '', 'a quiet winter in Greywater', '', 'Everything here is drawn and sounded in code:', 'the city, the people, the music box.', '', 'The survivors', 'Marta, Dov, Ines, Toby, Granny Beatrix,', 'Ravi, Yara, Pavel, and one Lamplighter', '', 'Also appearing', 'Mr. Halloran of 5B (weather)', 'the neighbor from 6A', 'a grey cat (unpaid)', 'a mouse (signage)', '', 'No dogs, cats, pigeons or mice were harmed.', 'The Grey Coats, the Magpies and the long guns are invented.', 'No real places, people or conflicts are depicted.', '', 'For everyone who kept a small light going', 'for somebody else.', '', 'Release ' + VERSION, 'Free to play in any browser, offline too.'];
 class CreditsScene {
   enter(p) { this.p = p; this.t = 0; Snd.setTrack('ending'); Snd.tension = 0; }
   update(dt) { this.t += dt; if (!this.done && this.t > 0.6 && (Input.menu.ok || Input.menu.back || Input.ptr.click)) { this.done = true; this.p.next(); } }   // 1.2: waits for the player at the end
@@ -5075,7 +5075,7 @@ class SplashScene {
     if (a2 > 0) {
       ctx.globalAlpha = a2; ctx.fillStyle = grey(140); ctx.fillRect(cx - 150 * a2, cy + 82, 300 * a2, 1.5);
       txt(ctx, 'p r e s e n t s', cx, cy + 104, 13, G.bone, 'center', { outline: false });
-      txt(ctx, 'ASHEN WINDOWS', cx, cy + 144, 22, G.paper, 'center', { serif: true, rot: -0.01 });
+      txt(ctx, 'LOCKDOWN', cx, cy + 144, 22, G.paper, 'center', { serif: true, rot: -0.01 });
       txt(ctx, 'a quiet winter in Greywater', cx, cy + 168, 11, G.dust, 'center', { outline: false, normal: true });
       ctx.globalAlpha = 1;
     }
@@ -7265,9 +7265,9 @@ const SaveIO = {
   },
   /* accepts the file text, or the bare save object */
   apply(text) {
-    let o; try { o = JSON.parse(text); } catch (e) { return 'That file is not an Ashen Windows save.'; }
+    let o; try { o = JSON.parse(text); } catch (e) { return 'That file is not a LockDown save.'; }
     const d = o && o.game === 'ashen-windows' ? o.data : o;
-    if (!d || d.v !== 1 || typeof d.settings !== 'object') return 'That file is not an Ashen Windows save.';
+    if (!d || d.v !== 1 || typeof d.settings !== 'object') return 'That file is not a LockDown save.';
     Save.data = deepMerge(Save.defaults(), d); Save.write(); Snd.applyVol(); return null;
   },
   importAll() {

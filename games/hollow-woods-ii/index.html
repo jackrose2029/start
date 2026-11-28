@@ -47,6 +47,7 @@
   </div>
 </div>
 
+<script src="src/mobile-mode.js"></script>
 <script src="src/input.js"></script>
 <script src="src/physics.js"></script>
 <script src="src/hazards.js"></script>
@@ -112,5 +113,22 @@
 <script src="src/runner.js"></script>
 <script src="src/story.js"></script>
 <script src="src/main.js"></script>
+
+<script>
+MobileMode.init({
+  id: 'hollow-woods-ii', canvas: '#game', aspect: 16 / 9,
+  playing: function () { try { return Hollow.game.state === 'play'; } catch (e) { return false; } },
+  gestureHelp: 'Drag left/right to run, flick up to jump, tap to grab or pull.',
+  pad: {
+    stick: { left: 'ArrowLeft', right: 'ArrowRight', up: 'ArrowUp', down: 'ArrowDown' },
+    buttons: [
+      { label: 'JUMP', key: 'Space', slot: 'a' },
+      { label: 'GRAB', key: 'KeyE', slot: 'b' }
+    ],
+    sys: [{ label: 'II', key: 'Escape' }, { label: 'OK', key: 'Enter' }, { label: 'R', key: 'KeyR' }]
+  },
+  gestures: { hold: { left: 'ArrowLeft', right: 'ArrowRight', down: 'ArrowDown' }, flick: { up: 'Space' }, tap: 'KeyE', twoFinger: 'Escape' }
+});
+</script>
 </body>
 </html>

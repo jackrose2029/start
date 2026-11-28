@@ -382,6 +382,22 @@ window.PROJECTS=[
 "hidden": false
 },
 {
+"id": "pew",
+"name": "Pew!-Pew!",
+"sub": "",
+"group": "linked",
+"cat": "Featured",
+"local": false,
+"url": "https://jorj2026.github.io/pew/",
+"repo": "https://github.com/JORJ2026/pew",
+"desc": "Arena game where you can overheat, restart with R and keep your saved progress.",
+"tech": "Mobile web app · JORJ2026/pew · HTML",
+"updated": "2026-11-28T12:52:00Z",
+"accent": null,
+"poster": null,
+"hidden": false
+},
+{
 "id": "lanternwoods",
 "name": "Lantern Woods",
 "sub": "",
@@ -505,22 +521,6 @@ window.PROJECTS=[
 "desc": "2D survival game, v4.18.",
 "tech": "Service worker; iOS web-app tags · JORJ2026/wildroot · HTML · MIT",
 "updated": "2026-11-24T13:52:00Z",
-"accent": null,
-"poster": null,
-"hidden": false
-},
-{
-"id": "pew",
-"name": "Pew!-Pew!",
-"sub": "",
-"group": "linked",
-"cat": "More Games",
-"local": false,
-"url": "https://jorj2026.github.io/pew/",
-"repo": "https://github.com/JORJ2026/pew",
-"desc": "Arena game where you can overheat, restart with R and keep your saved progress.",
-"tech": "Mobile web app · JORJ2026/pew · HTML",
-"updated": "2026-11-28T12:52:00Z",
 "accent": null,
 "poster": null,
 "hidden": false
